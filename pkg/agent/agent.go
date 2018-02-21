@@ -170,11 +170,9 @@ func (k *Klocksmith) process(stop <-chan struct{}) error {
 			return err
 		}
 
-		// set constants.AnnotationRebootInProgress and drain self
 		anno = map[string]string{
 			constants.AnnotationAgentMadeUnschedulable: constants.True,
 		}
-
 		if err := k8sutil.SetNodeAnnotations(k.nc, k.node, anno); err != nil {
 			return err
 		}
