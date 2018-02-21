@@ -164,7 +164,7 @@ func (k *Klocksmith) process(stop <-chan struct{}) error {
 	// ('any pods that are neither mirror pods nor managed by
 	// ReplicationController, ReplicaSet, DaemonSet or Job')
 
-	if alreadyUnschedulable == false {
+	if !alreadyUnschedulable {
 		glog.Info("Marking node as unschedulable")
 		if err := k8sutil.Unschedulable(k.nc, k.node, true); err != nil {
 			return err
