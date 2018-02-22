@@ -123,7 +123,7 @@ func (k *Klocksmith) process(stop <-chan struct{}) error {
 			return err
 		}
 	} else {
-		glog.Info("Skipping marking node as schedulable -- node was unschedulable prior to update reboot")
+		glog.Info("Skipping marking node as schedulable -- node was marked unschedulable by an external source")
 	}
 
 	// watch update engine for status updates
