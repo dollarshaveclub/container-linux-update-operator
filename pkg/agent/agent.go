@@ -99,8 +99,9 @@ func (k *Klocksmith) process(stop <-chan struct{}) error {
 	// set coreos.com/update1/reboot-in-progress=false and
 	// coreos.com/update1/reboot-needed=false
 	anno := map[string]string{
-		constants.AnnotationRebootInProgress: constants.False,
-		constants.AnnotationRebootNeeded:     constants.False,
+		constants.AnnotationRebootInProgress:       constants.False,
+		constants.AnnotationRebootNeeded:           constants.False,
+		constants.AnnotationAgentMadeUnschedulable: constants.False,
 	}
 	labels := map[string]string{
 		constants.LabelRebootNeeded: constants.False,
